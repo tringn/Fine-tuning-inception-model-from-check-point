@@ -42,6 +42,7 @@ cp ./datasets/poses.py ./datasets/hospital.py
 - Edit **_SPLITS_TO_SIZES_** to the number of photos used for training and validation.
 - Edit **__NUM_CLASSES_** to 2 (because there are 2 classes: doctor and patient). 
 - Edit **__FILE_PATTERN_** to **_hospital_%s_*.tfrecord_**
+- Replace all words "poses" by "hospital"
 3. Open file datasets/dataset_factory.py
 - Add **_from datasets import hospital_**
 - Add **_'hospital': hospital,_** to datasets_map
