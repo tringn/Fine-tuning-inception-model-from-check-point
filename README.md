@@ -65,23 +65,24 @@ Keep in mind that warm-starting from a checkpoint affects the model's weights on
 
 Below we give an example of fine-tuning inception-v3 on Hos, inception_v3 was trained on ImageNet with 1000 class labels, but the Hospital dataset only have 2 classes. Since the dataset is quite small we will only train the new layers.
 ```ruby
-python3 train_image_classifier.py --train_dir=./hospital_models/inception_v3 \
-                                  --dataset_dir=./data/hospital \
-                                  --dataset_name=hospital \
-                                  --dataset_split_name=train \
-                                  --model_name=inception_v3 \
-                                  --checkpoint_path=my_checkpoints/inception_v3.ckpt \
-                                  --checkpoint_exclude_scopes=InceptionV3/Logits,InceptionV3/AuxLogits \
-                                  --trainable_scopes=InceptionV3/Logits,InceptionV3/AuxLogits \
-                                  --max_number_of_steps=5000 \
-                                  --batch_size=32 \
-                                  --learning_rate=0.01 \
-                                  --learning_rate_decay_type=fixed \
-                                  --save_interval_secs=60 \
-                                  --save_summaries_secs=60 \
-                                  --log_every_n_steps=100 \
-                                  --optimizer=rmsprop \
-                                  --weight_decay=0.00004
+python3 train_image_classifier.py \
+    --train_dir=./hospital_models/inception_v3 \
+    --dataset_dir=./data/hospital \
+    --dataset_name=hospital \
+    --dataset_split_name=train \
+    --model_name=inception_v3 \
+    --checkpoint_path=my_checkpoints/inception_v3.ckpt \
+    --checkpoint_exclude_scopes=InceptionV3/Logits,InceptionV3/AuxLogits \
+    --trainable_scopes=InceptionV3/Logits,InceptionV3/AuxLogits \
+    --max_number_of_steps=5000 \
+    --batch_size=32 \
+    --learning_rate=0.01 \
+    --learning_rate_decay_type=fixed \
+    --save_interval_secs=60 \
+    --save_summaries_secs=60 \
+    --log_every_n_steps=100 \
+    --optimizer=rmsprop \
+    --weight_decay=0.00004
 ```
 For more information about Gradient Descent optimizer algorithm, you can refer at: http://ruder.io/optimizing-gradient-descent/index.html
 
