@@ -89,7 +89,7 @@ For more information about Gradient Descent optimizer algorithm, you can refer a
 # VI/ Evaluating performance of a model
 To evaluate the performance of a model, you can use the eval_image_classifier.py script, as shown below.
 ```ruby
- python eval_image_classifier.py \
+ python3 eval_image_classifier.py \
     --alsologtostderr \
     --checkpoint_path=./hospital_models/inception_v3/model.ckpt-5000 \
     --dataset_dir=./data/hospital \
@@ -101,7 +101,7 @@ To evaluate the performance of a model, you can use the eval_image_classifier.py
 Saves out a GraphDef containing the architecture of the model.
 To use it with a model name defined by slim, run:
 ```ruby
-python export_inference_graph.py \
+python3 export_inference_graph.py \
   --alsologtostderr \
   --model_name=inception_v3 \
   --output_file=./hospital_icpv3_inf_graph.pb \
